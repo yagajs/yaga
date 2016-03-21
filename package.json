@@ -4,7 +4,8 @@
   "description": "Yet another geo appliction",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "tsc": "tsc --out test/yaga-tests.js ts/**/*.spec.ts"
   },
   "repository": {
     "type": "git",
