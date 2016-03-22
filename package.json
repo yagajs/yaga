@@ -4,8 +4,8 @@
   "description": "Yet another geo appliction",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "tsc": "tsc --out test/yaga-tests.js ts/**/*.spec.ts"
+    "test": "npm run tsc; mocha; karma start karma.conf.js --single-run",
+    "tsc": "tsc --out test/yaga-tests.js ts/**/*.spec.ts; tsc --out browser-test/yaga-tests.js ts/**/*.spec.ts"
   },
   "repository": {
     "type": "git",
@@ -25,5 +25,16 @@
   "bugs": {
     "url": "https://github.com/yagajs/yaga/issues"
   },
-  "homepage": "http://yagajs.org"
+  "homepage": "http://yagajs.org",
+  "devDependencies": {
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-mocha": "^0.2.2",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-safari-launcher": "^0.1.1",
+    "karma-simpletsc-preprocessor": "0.0.1",
+    "karma-typescript-preprocessor": "0.0.21",
+    "mocha": "^2.4.5",
+    "phantomjs-prebuilt": "^2.1.6"
+  }
 }
