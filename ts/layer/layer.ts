@@ -1,5 +1,6 @@
 /// <reference path="../abstraction/abstraction.ts" />
-/// <reference path="../map/map.ts" />
+
+/// <reference path="../map/interface.ts" />
 
 module org.yagajs.layer {
     'use strict';
@@ -10,7 +11,7 @@ module org.yagajs.layer {
     // import adderHelper = org.yagajs.abstraction.adderHelper;
     // import removerHelper = org.yagajs.abstraction.removerHelper;
 
-    import Map = org.yagajs.map.Map;
+    import Map = org.yagajs.map.IMap;
 
     export interface ILayerOptions {
         type: string;
@@ -106,7 +107,7 @@ module org.yagajs.layer {
 
     var layerDict: ILayerDictionary = {};
 
-    export function createLayer(opts: ILayerOptions): Layer {
+    export function createLayer(opts: ILayerOptions, map: Map): Layer {
         var tmp: any; // type helper
 
         if (!layerDict[opts.type]) {
@@ -115,9 +116,11 @@ module org.yagajs.layer {
         }
         if (layerDict[opts.type].prototype.isPrototypeOf(opts)) {
             tmp = opts;
-            return tmp;
+        } else {
+            tmp = new layerDict[opts.type](opts);
         }
-        return new layerDict[opts.type](opts);
+        tmp.map = map;
+        return tmp;
     }
     export function registerLayerType(type: string, driver: ILayerStatic): void {
         layerDict[type] = driver;

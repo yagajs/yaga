@@ -66,13 +66,17 @@ module org.yagajs.layerTest {
             }
         });
         it('should be possible to create a layer from registry factory with layer-type abstraction', (): void => {
-            var layer: any = createLayer({
-                attribution: 'Just a test layer',
-                name: 'Test Layer',
-                type: 'abstraction'
-            });
+            var testMap: any = {},
+                layer: any = createLayer({
+                    attribution: 'Just a test layer',
+                    name: 'Test Layer',
+                    type: 'abstraction'
+                }, testMap);
             if (!TestLayer.prototype.isPrototypeOf(layer)) {
                 throw new Error('Not instantiated from the correct abstraction');
+            }
+            if (layer.map !== testMap) {
+                throw new Error('Incorrect Map added');
             }
         });
     });
