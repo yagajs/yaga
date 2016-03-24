@@ -25,9 +25,9 @@ module org.yagajs.layer {
     }
 
     export interface ILayer extends ILayerOptions {
-        opacity: number;
-        minZoom: number;
-        maxZoom: number;
+        // opacity: number;
+        // minZoom: number;
+        // maxZoom: number;
         // maxNativeZoom: number;
 
         setName(value: string, origin?: any[]): void;
