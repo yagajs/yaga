@@ -152,14 +152,14 @@ module org.yagajs.abstractionTest {
             if (methodTypes.indexOf('add') !== -1) {
 
                 it.skip('No tests for adders implemented!');
-                // it('should set other data', (): void => {
-                //     target['set' + upperCaseName](updateData);
+                // it('should add data', (): void => {
+                //     target['add' + upperCaseName](updateData);
                 //     if (target['get' + upperCaseName]() !== updateData || target[apiName] !== updateData ) {
                 //         throw new Error('Stored data is not valid');
                 //     }
                 // });
-                // it('should fire an event on set', (done: MochaDone): void => {
-                //     target.once('set:' + apiName, (value: any): void => {
+                // it('should fire an event on add', (done: MochaDone): void => {
+                //     target.once('add:' + apiName, (value: any): void => {
                 //         if (value !== compareData) {
                 //             return done(new Error('Fired data is not valid'));
                 //         }
@@ -170,14 +170,14 @@ module org.yagajs.abstractionTest {
             }
             if (methodTypes.indexOf('remove') !== -1) {
                 it.skip('No tests for removers implemented!');
-                // it('should set other data', (): void => {
-                //     target['set' + upperCaseName](updateData);
+                // it('should remove an entry from data', (): void => {
+                //     target['remove' + upperCaseName](updateData);
                 //     if (target['get' + upperCaseName]() !== updateData || target[apiName] !== updateData ) {
                 //         throw new Error('Stored data is not valid');
                 //     }
                 // });
-                // it('should fire an event on set', (done: MochaDone): void => {
-                //     target.once('set:' + apiName, (value: any): void => {
+                // it('should fire an event on remove', (done: MochaDone): void => {
+                //     target.once('remove:' + apiName, (value: any): void => {
                 //         if (value !== compareData) {
                 //             return done(new Error('Fired data is not valid'));
                 //         }
