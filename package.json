@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run tsc; mocha; karma start karma.conf.js --single-run",
-    "tsc": "tsc --out test/yaga-tests.js ts/**/*.spec.ts; tsc --out browser-test/yaga-tests.js ts/**/*.spec.ts"
+    "tsc": "tsc --out test/yaga-tests.js ts/**/*.spec.ts; tsc --out browser-test/yaga-tests.js ts/**/*.spec.ts ts/drivers/**/**/*.browser-spec.ts",
+    "dist": "tsc --out dist/complete.js ts/drivers/**/index.ts; tsc --out dist/leaflet.js ts/drivers/leaflet-driver/index.ts;"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
     "karma-safari-launcher": "^0.1.1",
     "karma-simpletsc-preprocessor": "0.0.1",
     "karma-typescript-preprocessor": "0.0.21",
+    "leaflet": "^0.7.7",
     "mocha": "^2.4.5",
     "phantomjs-prebuilt": "^2.1.6"
   }

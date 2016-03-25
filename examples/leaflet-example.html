@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yaga Leaflet example</title>
+    <link href="../node_modules/leaflet/dist/leaflet.css" rel="stylesheet">
+    <script src="../node_modules/leaflet/dist/leaflet-src.js"></script>
+
+    <script src="../dist/leaflet.js"></script>
+    <script>
+        document.addEventListener( "DOMContentLoaded", function () {
+            var map = new org.yagajs.drivers.leafletDriver.map.Map({
+                        center: {lat: 51, lng: 7},
+                        domRoot: document.getElementById('map'),
+                        layers: [
+                            {
+                                attribution: 'OpenStreetMap',
+                                name: 'OSM',
+                                opacity: 1,
+                                type: 'tile',
+                                url: 'http://a.tile.osm.org/{z}/{x}/{y}.png'
+                            },{
+                                attribution: 'ÖPNV Karte',
+                                name: 'ÖPNV',
+                                opacity: 0.5,
+                                type: 'tile',
+                                url: 'http://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png'
+                            }
+                        ],
+                        zoom: 10
+                    }),
+                    opnvLayer = map.layers[1];
+
+            window.map = map; // export to global scope
+
+            document.getElementById('opacity').addEventListener('input', function () {
+                opnvLayer.setOpacity(this.value / 100);
+            }, false);
+
+        }, false )
+    </script>
+</head>
+<body>
+<div id="map" style="min-height: 300px;"></div>
+<label for="opacity">Visibility ÖPNV Karte: </label> <input type="range" id="opacity" name="opacity" min="0" max="100" value="50">
+</body>
+</html>

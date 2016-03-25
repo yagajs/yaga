@@ -15,7 +15,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'ts/**/*.browser-spec.ts',
+      'node_modules/leaflet/dist/leaflet-src.js',
+      'ts/drivers/**/**/*.browser-spec.ts',
       'ts/**/*.spec.ts'
     ],
 
