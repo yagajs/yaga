@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run tsc; mocha; karma start karma.conf.js --single-run",
     "tsc": "tsc --out test/yaga-tests.js ts/**/*.spec.ts; tsc --out browser-test/yaga-tests.js ts/**/*.spec.ts ts/drivers/**/**/*.browser-spec.ts",
-    "dist": "tsc --out dist/complete.js ts/drivers/**/index.ts; tsc --out dist/leaflet.js ts/drivers/leaflet-driver/index.ts;"
+    "dist": "tsc --out dist/complete.js ts/drivers/**/index.ts; tsc --out dist/leaflet.js ts/drivers/leaflet-driver/index.ts; tsc --out dist/angular.js ts/drivers/angular-driver/index.ts; tsc --out dist/leaflet-ng.js ts/drivers/leaflet-ng-driver/index.ts;"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,8 @@
   },
   "homepage": "http://yagajs.org",
   "devDependencies": {
+    "angular": "^1.5.2",
+    "angular-mocks": "^1.5.2",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^0.2.2",
     "karma-mocha": "^0.2.2",
